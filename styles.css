@@ -1,0 +1,119 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  gap: 20px;
+}
+
+.progress {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: #fff;
+  gap: 60px;
+}
+
+.progress-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: conic-gradient(#007bff 0%, #eef3f6 0%);
+  mask: radial-gradient(closest-side, transparent 74.95%, black 75%);
+  -webkit-mask: radial-gradient(closest-side, transparent 74.95%, black 75%);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Запуск анимации */
+.ratate-circle {
+  animation: rotate 2s linear infinite;
+}
+
+/* Остановка анимации */
+.ratate-circle-paused {
+  animation-play-state: paused;
+}
+
+.progress-controls {
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 20px;
+  column-gap: 10px;
+  align-items: center;
+  & label {
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  & input[type="number"] {
+    width: 47px;
+    height: 19px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  & input[type="number"]::-webkit-outer-spin-button,
+  & input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  & input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  /* Переключатели */
+  & input[type="checkbox"] {
+    margin: 0;
+    appearance: none;
+    width: 58px;
+    height: 31.4px;
+    background-color: #eef2f5;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  & input[type="checkbox"]:checked {
+    background-color: #005bfe;
+  }
+
+  & input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2.4px;
+    width: 27px;
+    height: 27px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  & input[type="checkbox"]:checked::before {
+    transform: translateX(25.4px);
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .progress {
+    flex-direction: row;
+  }
+}

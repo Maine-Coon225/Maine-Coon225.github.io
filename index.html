@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Circle</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="progress-one"></div>
+
+    <script src="app.js"></script>
+    <script>
+      const progressOne = new createProgressCircle('progress-one', {
+        animate: true,
+        hide: false,
+        controls: true,
+      });
+      // progressOne.setValue(10)
+      //   setTimeout(()=> {
+      //     progressOne.setValue(45)
+
+      //   },5000)
+      //   setTimeout(()=>{
+      //     progressOne.setValue(100)
+      //   },15000)
+    </script>
+  </body>
+</html>
